@@ -28,7 +28,12 @@ jobs:
 
       - name: Deploy to EC2
         uses: truemark/aws-ec2-run-instance-action@v5
-        env:
+        with:
+          subnet-id: subnet-02346fcfb9b30a87e
+          security-group-id: sg-07ecc5f10e10ff345
+          image-id: ami-0866a3c8686eaeeba
+          instance-type: t2.micro
+          region: us-east-1
           PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
           HOST: ${{ secrets.EC2_HOST }}
           USER: ${{ secrets.EC2_USERNAME }}
