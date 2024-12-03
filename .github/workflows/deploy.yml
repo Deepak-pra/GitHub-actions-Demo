@@ -34,9 +34,6 @@ jobs:
           image-id: ami-0866a3c8686eaeeba
           instance-type: t2.micro
           region: us-east-1
-          PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
-          HOST: ${{ secrets.EC2_HOST }}
-          USER: ${{ secrets.EC2_USERNAME }}
 
     
 
