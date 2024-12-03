@@ -26,4 +26,9 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/webapp
 
+      - name: Deploy to EC2
+        uses: ubuntu/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_PRIVATE_KEY }}
 
