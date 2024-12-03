@@ -26,5 +26,12 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/webapp
 
+      - name: Deploy to EC2
+        uses: truemark/aws-ec2-run-instance-action@v5
+        env:
+          PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
+          HOST: ${{ secrets.EC2_HOST }}
+          USER: ${{ secrets.EC2_USERNAME }}
+
     
 
