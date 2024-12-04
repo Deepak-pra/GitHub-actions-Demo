@@ -25,5 +25,8 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/webapp
+
+      - name: Deploy app to EC2
+          uses:bitovi/github-actions-deploy-docker-to-ec2@bb4d9bbae4cf9e1fd10dd10a3665fa973092cde9
     
 
