@@ -27,6 +27,15 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/webapp
 
       - name: Deploy app to EC2
-          uses:bitovi/github-actions-deploy-docker-to-ec2@bb4d9bbae4cf9e1fd10dd10a3665fa973092cde9
-    
+        uses: bitovi/github-actions-deploy-docker-to-ec2@v1.0.1
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_default_region: us-east-1
+          checkout: true
+          aws_ec2_instance_create: true
+          aws_ec2_ami_id: ami-0866a3c8686eaeeba
+          aws_ec2_instance_type: t2-micro
+          aws_ec2_security_group_name: launch-wizard-1
+        
 
