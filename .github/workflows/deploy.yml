@@ -43,5 +43,3 @@ jobs:
           aws_ec2_ami_id: ami-0866a3c8686eaeeba
           aws_ec2_instance_type: t2-micro
           aws_ec2_security_group_name: launch-wizard-1
-        
-
