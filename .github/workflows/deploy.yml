@@ -25,21 +25,3 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/webapp
-
-      - name: Establish SSH connection
-        uses: omarhosny206/setup-ssh-for-ec2@v1.0.0
-        with:
-          EC2_SSH_PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
-          EC2_URL: https://ec2-18-215-161-18.compute-1.amazonaws.com
-
-      - name: Deploy app to EC2
-        uses: bitovi/github-actions-deploy-docker-to-ec2@v1.0.1
-        with:
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_default_region: us-east-1
-          checkout: true
-          aws_ec2_instance_create: true
-          aws_ec2_ami_id: ami-0866a3c8686eaeeba
-          aws_ec2_instance_type: t2-micro
-          aws_ec2_security_group_name: launch-wizard-1
